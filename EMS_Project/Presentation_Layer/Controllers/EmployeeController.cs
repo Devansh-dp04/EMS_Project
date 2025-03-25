@@ -1,10 +1,15 @@
-﻿using EMS_Project.Logical_Layer.DTOs;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using EMS_Project.Logical_Layer.DTOs;
 using EMS_Project.Logical_Layer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS_Project.Presentation_Layer.Controllers
 {
+    [Authorize(Roles = "Employee")]
+    [ApiController]
+    [Route("api/employee/[controller]")]
     public class EmployeeController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -16,21 +21,7 @@ namespace EMS_Project.Presentation_Layer.Controllers
             _authService = authService;
             _employeeServices = employeeServices;
             _timeSheetService = timeSheetService;
-        }
-
-        [HttpPost("Employee-Login")]
-        public async Task<IActionResult> EmployeeLogin(EmployeeLoginRequestDTO employeeLoginRequest)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            else
-            {
-                return await _authService.LoginEmployeeAsync(employeeLoginRequest);
-            }
-
-        }
+        }        
 
         [HttpPost("Reset-Password")]
         public async Task<IActionResult> EmployeeResetPassword(string email, string role)

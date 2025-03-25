@@ -2,13 +2,14 @@
 using EMS_Project.Logical_Layer.DTOs;
 using EMS_Project.Logical_Layer.Interfaces;
 using EMS_Project.Logical_Layer.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS_Project.Presentation_Layer.Controllers;
-
+[Authorize(Roles = "Admin")]
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/admin/[controller]")]
 public class AdminController : ControllerBase
 {
     private readonly IAuthService _authService;
@@ -20,21 +21,8 @@ public class AdminController : ControllerBase
         _authService = authService;
         _employeeServices = employeeServices;
         _timeSheetService = timeSheetService;
-    }
-    [HttpPost("admin-login")]
-    public async Task<IActionResult> AdminLogin(AdminLoginReqeustDTO adminLoginReqeust)
-    {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-        else
-        {
-            return await _authService.LoginAdminAsync(adminLoginReqeust);
-        }
-
-    }
-
+    }    
+    
     [HttpGet("get-employee")]
     public async Task<IActionResult> GetEmployee()
     {
@@ -48,7 +36,7 @@ public class AdminController : ControllerBase
             return await _employeeServices.GetEmployee();
         }
     }
-
+    
     [HttpGet("get-employee-By-Id")]
     public async Task<IActionResult> GetEmployeeById([FromQuery] int id)
     {
@@ -62,7 +50,7 @@ public class AdminController : ControllerBase
             return await _employeeServices.GetEmployeeById(id);
         }
     }
-
+    
     [HttpGet("Export-TimeSheet-To-Excel")]
     public async Task<IActionResult> ExportTimeSheet()
     {
@@ -76,7 +64,7 @@ public class AdminController : ControllerBase
 
         return File(filedata, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
     }
-
+    
     [HttpPost("add-employee")]
     public async Task<IActionResult> AddEmployee(AddEmployeeDTO addEmployee)
     {
@@ -89,7 +77,7 @@ public class AdminController : ControllerBase
             return await _employeeServices.AddEmployee(addEmployee);
         }
     }
-
+    
     [HttpPost("delete-employee")]
     public async Task<IActionResult> DeleteEmployee(string email)
     {
@@ -102,7 +90,7 @@ public class AdminController : ControllerBase
             return await _employeeServices.DeleteEmployee(email);
         }
     }
-
+    
     [HttpPatch("Update-Employee")]
     public async Task<IActionResult> UpdateEmployeeByAdmin([FromBody] JsonPatchDocument<UpdateEmployeeByAdminDTO> patchDoc, [FromQuery] int empid)
     {
@@ -115,7 +103,7 @@ public class AdminController : ControllerBase
             return await _employeeServices.UpdateEmployeeByAdmin(patchDoc, empid);
         }
     }
-
+    
     [HttpPost("Reset-Password")]
     public async Task<IActionResult> AdminResetPassword(string email)
     {

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,18 +47,36 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "EMS API", Version = "v1" });
+
+    // Define the security scheme for JWT Authentication
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Title = "Employee API",
-        Version = "v1"
+        Description = "Enter 'Bearer' followed by a space and your JWT token.",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT"
     });
 
-    
-    options.MapType<JsonPatchDocument>(() => new OpenApiSchema
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
-        Type = "object",
-        AdditionalProperties = new OpenApiSchema { Type = "object" }
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
     });
+
+    // Allow Swagger to remember the token for secured endpoints
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
 var app = builder.Build();
@@ -70,6 +89,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

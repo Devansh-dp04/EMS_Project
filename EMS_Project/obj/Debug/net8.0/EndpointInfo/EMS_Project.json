@@ -1,47 +1,11 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Employee API",
+    "title": "EMS API",
     "version": "v1"
   },
   "paths": {
-    "/api/Admin/admin-login": {
-      "post": {
-        "tags": [
-          "Admin"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Admin/get-employee": {
+    "/api/admin/Admin/get-employee": {
       "get": {
         "tags": [
           "Admin"
@@ -49,11 +13,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/api/Admin/get-employee-By-Id": {
+    "/api/admin/Admin/get-employee-By-Id": {
       "get": {
         "tags": [
           "Admin"
@@ -71,11 +46,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/api/Admin/Export-TimeSheet-To-Excel": {
+    "/api/admin/Admin/Export-TimeSheet-To-Excel": {
       "get": {
         "tags": [
           "Admin"
@@ -83,11 +69,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/api/Admin/add-employee": {
+    "/api/admin/Admin/add-employee": {
       "post": {
         "tags": [
           "Admin"
@@ -119,11 +116,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/api/Admin/delete-employee": {
+    "/api/admin/Admin/delete-employee": {
       "post": {
         "tags": [
           "Admin"
@@ -140,11 +148,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/api/Admin/Update-Employee": {
+    "/api/admin/Admin/Update-Employee": {
       "patch": {
         "tags": [
           "Admin"
@@ -198,11 +217,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/api/Admin/Reset-Password": {
+    "/api/admin/Admin/Reset-Password": {
       "post": {
         "tags": [
           "Admin"
@@ -219,11 +249,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/api/Admin/Enter-New-Password": {
+    "/api/admin/Admin/Enter-New-Password": {
       "post": {
         "tags": [
           "Admin"
@@ -255,39 +296,22 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/Employee-Login": {
-      "post": {
-        "tags": [
-          "Employee"
-        ],
-        "parameters": [
-          {
-            "name": "Email",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
           {
-            "name": "Password",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
+            "oauth2": [ ]
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
+        ]
       }
     },
-    "/Reset-Password": {
+    "/api/employee/Employee/Reset-Password": {
       "post": {
         "tags": [
           "Employee"
@@ -311,54 +335,69 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/Enter-New-Password": {
+    "/api/employee/Employee/Enter-New-Password": {
       "post": {
         "tags": [
           "Employee"
         ],
-        "parameters": [
-          {
-            "name": "Email",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Token",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "NewPassword",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Role",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDTO"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordDTO"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/Employee-Profile": {
+    "/api/employee/Employee/Employee-Profile": {
       "get": {
         "tags": [
           "Employee"
@@ -375,11 +414,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/Log-Working-Hours": {
+    "/api/employee/Employee/Log-Working-Hours": {
       "post": {
         "tags": [
           "Employee"
@@ -411,11 +461,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/Update-Employee": {
+    "/api/employee/Employee/Update-Employee": {
       "patch": {
         "tags": [
           "Employee"
@@ -469,11 +530,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/Get-TimeSheet-By-Id": {
+    "/api/employee/Employee/Get-TimeSheet-By-Id": {
       "get": {
         "tags": [
           "Employee"
@@ -491,11 +563,22 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
       }
     },
-    "/Update-TimeSheet": {
+    "/api/employee/Employee/Update-TimeSheet": {
       "post": {
         "tags": [
           "Employee"
@@ -530,6 +613,89 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/TimeSheetUpdateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/api/Login/admin-login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminLoginReqeustDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Login/Employee-Login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeLoginRequestDTO"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeLoginRequestDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeLoginRequestDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeLoginRequestDTO"
               }
             }
           }
@@ -607,6 +773,20 @@
         "additionalProperties": false
       },
       "AdminLoginReqeustDTO": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmployeeLoginRequestDTO": {
         "type": "object",
         "properties": {
           "email": {
@@ -757,6 +937,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer' followed by a space and your JWT token.",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

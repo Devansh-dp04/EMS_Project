@@ -2,7 +2,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "AddEmployee",
-    "RelativePath": "api/Admin/add-employee",
+    "RelativePath": "api/admin/Admin/add-employee",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -17,24 +17,8 @@
   },
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
-    "Method": "AdminLogin",
-    "RelativePath": "api/Admin/admin-login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "adminLoginReqeust",
-        "Type": "EMS_Project.Logical_Layer.DTOs.AdminLoginReqeustDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "DeleteEmployee",
-    "RelativePath": "api/Admin/delete-employee",
+    "RelativePath": "api/admin/Admin/delete-employee",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -50,7 +34,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "EnterNewPassword",
-    "RelativePath": "api/Admin/Enter-New-Password",
+    "RelativePath": "api/admin/Admin/Enter-New-Password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -66,7 +50,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "ExportTimeSheet",
-    "RelativePath": "api/Admin/Export-TimeSheet-To-Excel",
+    "RelativePath": "api/admin/Admin/Export-TimeSheet-To-Excel",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -76,7 +60,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "GetEmployee",
-    "RelativePath": "api/Admin/get-employee",
+    "RelativePath": "api/admin/Admin/get-employee",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -86,7 +70,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "GetEmployeeById",
-    "RelativePath": "api/Admin/get-employee-By-Id",
+    "RelativePath": "api/admin/Admin/get-employee-By-Id",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -102,7 +86,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "AdminResetPassword",
-    "RelativePath": "api/Admin/Reset-Password",
+    "RelativePath": "api/admin/Admin/Reset-Password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -118,7 +102,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "UpdateEmployeeByAdmin",
-    "RelativePath": "api/Admin/Update-Employee",
+    "RelativePath": "api/admin/Admin/Update-Employee",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -138,29 +122,8 @@
   },
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
-    "Method": "EmployeeLogin",
-    "RelativePath": "Employee-Login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "GetEmployeeProfile",
-    "RelativePath": "Employee-Profile",
+    "RelativePath": "api/employee/Employee/Employee-Profile",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -176,30 +139,15 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "EnterNewPassword",
-    "RelativePath": "Enter-New-Password",
+    "RelativePath": "api/employee/Employee/Enter-New-Password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Token",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "NewPassword",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Role",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "resetPasswordDTO",
+        "Type": "EMS_Project.Logical_Layer.DTOs.ResetPasswordDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -207,7 +155,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "GetTimeSheetById",
-    "RelativePath": "Get-TimeSheet-By-Id",
+    "RelativePath": "api/employee/Employee/Get-TimeSheet-By-Id",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -223,7 +171,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "LogWorkingHours",
-    "RelativePath": "Log-Working-Hours",
+    "RelativePath": "api/employee/Employee/Log-Working-Hours",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -239,7 +187,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "EmployeeResetPassword",
-    "RelativePath": "Reset-Password",
+    "RelativePath": "api/employee/Employee/Reset-Password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -260,7 +208,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "UpdateEmployeeByEmployee",
-    "RelativePath": "Update-Employee",
+    "RelativePath": "api/employee/Employee/Update-Employee",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -281,7 +229,7 @@
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "UpdateTimeSheet",
-    "RelativePath": "Update-TimeSheet",
+    "RelativePath": "api/employee/Employee/Update-TimeSheet",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -295,6 +243,38 @@
         "Name": "empid",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.LoginController",
+    "Method": "AdminLogin",
+    "RelativePath": "api/Login/admin-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminLoginReqeust",
+        "Type": "EMS_Project.Logical_Layer.DTOs.AdminLoginReqeustDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.LoginController",
+    "Method": "EmployeeLogin",
+    "RelativePath": "api/Login/Employee-Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeLoginRequest",
+        "Type": "EMS_Project.Logical_Layer.DTOs.EmployeeLoginRequestDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

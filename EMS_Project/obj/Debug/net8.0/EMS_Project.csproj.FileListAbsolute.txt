@@ -190,3 +190,6 @@ D:\EMS\EMS_Project\bin\Debug\net8.0\MailKit.dll
 D:\EMS\EMS_Project\bin\Debug\net8.0\MimeKit.dll
 D:\EMS\EMS_Project\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\EMS\EMS_Project\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\EMS\EMS_Project\bin\Debug\net8.0\Scrutor.dll
+D:\EMS\EMS_Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
+D:\EMS\EMS_Project\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
