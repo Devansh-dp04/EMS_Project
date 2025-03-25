@@ -9,7 +9,7 @@ namespace EMS_Project.Models
         [Key]
         public int TimesheetId { get; set; }
 
-        [Required]
+        [Required]  
         public int EmployeeId { get; set; }
 
         [Required]

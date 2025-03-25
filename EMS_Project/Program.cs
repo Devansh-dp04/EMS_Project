@@ -27,7 +27,7 @@ builder.Services.AddScoped<IEmployeeServices, EmployeeService>();
 builder.Services.AddScoped<ITimeSheetService, TimeSheetServices>();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IPasswordService, PasswordGeneration>();
-
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

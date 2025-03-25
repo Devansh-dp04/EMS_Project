@@ -223,7 +223,7 @@ namespace EMS_Project.Logical_Layer.Services
             }
         }
 
-        public async Task<IActionResult> UpdateEmployee(JsonPatchDocument<UpdateEmployeeDTO> patchDoc, int empid)
+        public async Task<IActionResult> UpdateEmployeeByAdmin(JsonPatchDocument<UpdateEmployeeByAdminDTO> patchDoc, int empid)
         {
 
             try
@@ -247,7 +247,7 @@ namespace EMS_Project.Logical_Layer.Services
                     };
                 }
 
-                var employeeDTO = _mapper.Map<UpdateEmployeeDTO>(employee);
+                var employeeDTO = _mapper.Map<UpdateEmployeeByAdminDTO>(employee);
 
                 patchDoc.ApplyTo(employeeDTO);
 
@@ -278,6 +278,134 @@ namespace EMS_Project.Logical_Layer.Services
                 };
             }
         }
-     }
+
+        public async Task<IActionResult> GetEmployeeByEmail(string email)
+        {
+            var empdata = await _context.Employees.Include(e => e.Timesheets).Select(empdata => new
+            {
+                empdata.EmployeeId,
+                empdata.FirstName,
+                empdata.LastName,
+                empdata.Email,
+                empdata.Phone,
+                empdata.Department.DepartmentName,
+                timesheets = empdata.Timesheets.Select(ts => new
+                {
+                    ts.CreatedAt,
+                    ts.Date,
+                    ts.TotalHours,
+                    ts.StartTime,
+                    ts.EndTime,
+
+                })
+            }).FirstOrDefaultAsync(emp => emp.Email == email);
+            if (empdata == null)
+            {
+                return new ObjectResult(new
+                {
+                    Success = false,
+                    message = "Email not found"
+                })
+                {
+                    StatusCode = StatusCodes.Status404NotFound
+                };
+            }
+            return new ObjectResult(new
+            {
+                Success = true,
+                Data = empdata
+            })
+            {
+                StatusCode = StatusCodes.Status200OK
+            };
+
+        }
+
+        public async Task<IActionResult> LogWorkingHours(LogWorkingHoursDTO logWorkingHours)
+        {
+            var empdata = await _context.Employees.FirstOrDefaultAsync(emp => emp.EmployeeId == logWorkingHours.EmployeeId);
+            if (empdata == null)
+            {
+                return new ObjectResult(new
+                {
+                    Success = false,
+                    message = "Invalid EmployeeID"
+                })
+                {
+                    StatusCode = StatusCodes.Status404NotFound
+                };
+            }
+
+            var timesheet = _mapper.Map<Timesheet>(logWorkingHours);
+            timesheet.EmployeeId = empdata.EmployeeId;
+
+            _context.Timesheets.Add(timesheet);
+            await _context.SaveChangesAsync();
+
+            return new ObjectResult(new
+            {
+                Success = true,
+                Message = "Working hours logged successfully"
+            })
+            {
+                StatusCode = StatusCodes.Status200OK
+            };
+        }
+
+        public async Task<IActionResult> UpdateEmployeeByEmployee(JsonPatchDocument<UpdateEmployeeByEmployeeDTO> patchDoc, int empid)
+        {
+            try
+            {
+                if (patchDoc == null)
+                {
+                    throw new ArgumentNullException(nameof(patchDoc), "Patch document cannot be null.");
+                }
+
+                var employee = await _context.Employees.FindAsync(empid);
+
+                if (employee == null)
+                {
+                    return new ObjectResult(new
+                    {
+                        Success = false,
+                        Message = "Employee not found"
+                    })
+                    {
+                        StatusCode = StatusCodes.Status404NotFound
+                    };
+                }
+
+                var employeeDTO = _mapper.Map<UpdateEmployeeByEmployeeDTO>(employee);
+
+                patchDoc.ApplyTo(employeeDTO);
+
+                _mapper.Map(employeeDTO, employee);
+
+                employee.UpdatedAt = DateTime.Now;
+                await _context.SaveChangesAsync();
+
+                return new ObjectResult(new
+                {
+                    Success = true,
+                    Message = "Your detail has been successfully updated"
+                })
+                {
+                    StatusCode = StatusCodes.Status200OK
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return new ObjectResult(new
+                {
+                    Success = false,
+                    Message = ex.Message
+                })
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
+        }
+    }
  }
 

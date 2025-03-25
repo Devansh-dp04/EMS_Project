@@ -1,5 +1,6 @@
 ﻿using EMS_Project.Logical_Layer.DTOs;
 using EMS_Project.Logical_Layer.Interfaces;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS_Project.Presentation_Layer.Controllers
@@ -31,5 +32,97 @@ namespace EMS_Project.Presentation_Layer.Controllers
 
         }
 
+        [HttpPost("Reset-Password")]
+        public async Task<IActionResult> EmployeeResetPassword(string email, string role)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return await _authService.ResetTokenGeneration(email,"employee");
+            }
+
+        }
+
+        [HttpPost("Enter-New-Password")]
+        public async Task<IActionResult> EnterNewPassword(ResetPasswordDTO resetPasswordDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return await _authService.TokenValidation(resetPasswordDTO);
+            }
+        }
+
+        [HttpGet("Employee-Profile")]
+        public async Task<IActionResult> GetEmployeeProfile(string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return await _employeeServices.GetEmployeeByEmail(email);
+            }
+        }
+
+        [HttpPost("Log-Working-Hours")]
+        public async Task<IActionResult> LogWorkingHours([FromBody] LogWorkingHoursDTO logWorkingHoursDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return await _employeeServices.LogWorkingHours(logWorkingHoursDTO);
+            }
+        }
+
+        [HttpPatch("Update-Employee")]
+        public async Task<IActionResult> UpdateEmployeeByEmployee([FromBody] JsonPatchDocument<UpdateEmployeeByEmployeeDTO> patchDoc, [FromQuery] int empid)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return await _employeeServices.UpdateEmployeeByEmployee(patchDoc, empid);
+            }
+        }
+
+        [HttpGet("Get-TimeSheet-By-Id")]
+        public async Task<IActionResult> GetTimeSheetById(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return await _timeSheetService.GetTimeSheet(id);
+            }
+        }
+
+        [HttpPost("Update-TimeSheet")]
+        public async Task<IActionResult> UpdateTimeSheet([FromBody]TimeSheetUpdateDTO timeSheetupdate,[FromQuery]int empid)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return await _timeSheetService.UpdateTimeSheet(timeSheetupdate,empid);
+            }
+        }
     }
 }
+

@@ -12,7 +12,11 @@ namespace EMS_Project.Logical_Layer.Interfaces
 
         public Task<IActionResult> DeleteEmployee(string email);
 
-        public Task<IActionResult> UpdateEmployee(JsonPatchDocument<UpdateEmployeeDTO> patchDoc, int empid);
+        public Task<IActionResult> UpdateEmployeeByAdmin(JsonPatchDocument<UpdateEmployeeByAdminDTO> patchDoc, int empid);
+        public Task<IActionResult> GetEmployeeByEmail(string email);
 
+        public Task<IActionResult> LogWorkingHours(LogWorkingHoursDTO logWorkingHours);
+
+        public Task<IActionResult> UpdateEmployeeByEmployee(JsonPatchDocument<UpdateEmployeeByEmployeeDTO> patchDoc, int empid);
     }
 }

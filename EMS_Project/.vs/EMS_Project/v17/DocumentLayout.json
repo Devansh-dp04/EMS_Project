@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "D:\\EMS\\EMS_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\custodatavalidation\\validworkinghours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\custodatavalidation\\validworkinghours.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\dtos\\timesheetupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\dtos\\timesheetupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\data_access_layer\\models\\timesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:data_access_layer\\models\\timesheet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\services\\timesheetservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\services\\timesheetservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\presentation_layer\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:presentation_layer\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\presentation_layer\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:presentation_layer\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\dtos\\updateemployeebyemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\dtos\\updateemployeebyemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\interfaces\\iemployeeservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\interfaces\\iemployeeservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\dtos\\employeeloginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,20 +39,28 @@
       "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:data_access_layer\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\dtos\\updateemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\dtos\\updateemployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\interfaces\\itimesheetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\interfaces\\itimesheetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\presentation_layer\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:presentation_layer\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\interfaces\\iemployeeservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\interfaces\\iemployeeservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|d:\\ems\\ems_project\\logical_layer\\services\\passwordgeneration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7742E808-9002-41C0-A6C1-FF40EF67E5CE}|EMS_Project.csproj|solutionrelative:logical_layer\\services\\passwordgeneration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,132 +82,197 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmployeeController.cs",
-              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\EmployeeController.cs",
-              "RelativeDocumentMoniker": "Presentation_Layer\\Controllers\\EmployeeController.cs",
-              "ToolTip": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\EmployeeController.cs",
-              "RelativeToolTip": "Presentation_Layer\\Controllers\\EmployeeController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABwAAAAyAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ValidWorkingHours.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\CustoDataValidation\\ValidWorkingHours.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\CustoDataValidation\\ValidWorkingHours.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\CustoDataValidation\\ValidWorkingHours.cs",
+              "RelativeToolTip": "Logical_Layer\\CustoDataValidation\\ValidWorkingHours.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwB4AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T15:52:58.264Z",
+              "WhenOpened": "2025-03-25T09:01:22.166Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "TimeSheetUpdateDTO.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\TimeSheetUpdateDTO.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\DTOs\\TimeSheetUpdateDTO.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\TimeSheetUpdateDTO.cs",
+              "RelativeToolTip": "Logical_Layer\\DTOs\\TimeSheetUpdateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T09:00:05.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Timesheet.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Data_Access_layer\\Models\\Timesheet.cs",
+              "RelativeDocumentMoniker": "Data_Access_layer\\Models\\Timesheet.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Data_Access_layer\\Models\\Timesheet.cs",
+              "RelativeToolTip": "Data_Access_layer\\Models\\Timesheet.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T08:25:04.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Authservice.cs",
               "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\Authservice.cs",
               "RelativeDocumentMoniker": "Logical_Layer\\Services\\Authservice.cs",
               "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\Authservice.cs",
               "RelativeToolTip": "Logical_Layer\\Services\\Authservice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-23T15:44:54.309Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Logical_Layer\\Interfaces\\IAuthService.cs",
-              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "Logical_Layer\\Interfaces\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TimeSheetServices.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\TimeSheetServices.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\Services\\TimeSheetServices.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\TimeSheetServices.cs",
+              "RelativeToolTip": "Logical_Layer\\Services\\TimeSheetServices.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwHUAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T15:44:17.642Z",
+              "WhenOpened": "2025-03-25T05:39:30.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ITimeSheetService.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\ITimeSheetService.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\Interfaces\\ITimeSheetService.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\ITimeSheetService.cs",
+              "RelativeToolTip": "Logical_Layer\\Interfaces\\ITimeSheetService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T05:39:02.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "UpdateEmployeeByEmployeeDTO.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\UpdateEmployeeByEmployeeDTO.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\DTOs\\UpdateEmployeeByEmployeeDTO.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\UpdateEmployeeByEmployeeDTO.cs",
+              "RelativeToolTip": "Logical_Layer\\DTOs\\UpdateEmployeeByEmployeeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T04:38:50.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Presentation_Layer\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Presentation_Layer\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAkwJEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T04:34:19.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IEmployeeServices.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\IEmployeeServices.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\Interfaces\\IEmployeeServices.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\IEmployeeServices.cs",
+              "RelativeToolTip": "Logical_Layer\\Interfaces\\IEmployeeServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAACAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T11:31:12.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "Presentation_Layer\\Controllers\\EmployeeController.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "Presentation_Layer\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAYwHoAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T15:52:58.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\Services\\EmployeeService.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "Logical_Layer\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAiwEQBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T10:25:30.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmployeeLoginRequestDTO.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
+              "RelativeToolTip": "Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T10:16:11.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Employee.cs",
               "DocumentMoniker": "D:\\EMS\\EMS_Project\\Data_Access_layer\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "Data_Access_layer\\Models\\Employee.cs",
               "ToolTip": "D:\\EMS\\EMS_Project\\Data_Access_layer\\Models\\Employee.cs",
               "RelativeToolTip": "Data_Access_layer\\Models\\Employee.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCMAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAA1wCUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-23T15:43:15.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EmployeeLoginRequestDTO.cs",
-              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
-              "RelativeDocumentMoniker": "Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
-              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
-              "RelativeToolTip": "Logical_Layer\\DTOs\\EmployeeLoginRequestDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T15:43:01.977Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UpdateEmployeeDTO.cs",
-              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\UpdateEmployeeDTO.cs",
-              "RelativeDocumentMoniker": "Logical_Layer\\DTOs\\UpdateEmployeeDTO.cs",
-              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\DTOs\\UpdateEmployeeDTO.cs",
-              "RelativeToolTip": "Logical_Layer\\DTOs\\UpdateEmployeeDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T05:27:13.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "Logical_Layer\\Services\\EmployeeService.cs",
-              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\EmployeeService.cs",
-              "RelativeToolTip": "Logical_Layer\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAAOkAAAAAAAAAAAAAAAMBAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T07:56:25.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Presentation_Layer\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\EMS\\EMS_Project\\Presentation_Layer\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Presentation_Layer\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T10:56:48.766Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "IEmployeeServices.cs",
-              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\IEmployeeServices.cs",
-              "RelativeDocumentMoniker": "Logical_Layer\\Interfaces\\IEmployeeServices.cs",
-              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Interfaces\\IEmployeeServices.cs",
-              "RelativeToolTip": "Logical_Layer\\Interfaces\\IEmployeeServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T07:53:56.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\EMS\\EMS_Project\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\EMS\\EMS_Project\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADYAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T10:55:04.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PasswordGeneration.cs",
+              "DocumentMoniker": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\PasswordGeneration.cs",
+              "RelativeDocumentMoniker": "Logical_Layer\\Services\\PasswordGeneration.cs",
+              "ToolTip": "D:\\EMS\\EMS_Project\\Logical_Layer\\Services\\PasswordGeneration.cs",
+              "RelativeToolTip": "Logical_Layer\\Services\\PasswordGeneration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T06:01:04.127Z",
               "EditorCaption": ""
             }
           ]

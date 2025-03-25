@@ -9,6 +9,9 @@ namespace EMS_Project.Logical_Layer.Interfaces
         public Task<IActionResult> LoginAdminAsync(AdminLoginReqeustDTO adminLoginReqeustDTO);
 
         public Task<IActionResult> LoginEmployeeAsync(EmployeeLoginRequestDTO employeeLoginRequestDTO);
+        public Task<IActionResult> ResetTokenGeneration(string email, string role);
 
+        public Task<IActionResult> TokenValidation(ResetPasswordDTO resetPasswordRequest);
+        
     }
 }

@@ -32,7 +32,7 @@ public class AdminController : ControllerBase
         {
             return await _authService.LoginAdminAsync(adminLoginReqeust);
         }
-        
+
     }
 
     [HttpGet("get-employee")]
@@ -45,12 +45,12 @@ public class AdminController : ControllerBase
         }
         else
         {
-            return await _employeeServices.GetEmployee();   
+            return await _employeeServices.GetEmployee();
         }
     }
 
     [HttpGet("get-employee-By-Id")]
-    public async Task<IActionResult> GetEmployeeById([FromQuery]int id)
+    public async Task<IActionResult> GetEmployeeById([FromQuery] int id)
     {
 
         if (!ModelState.IsValid)
@@ -74,7 +74,7 @@ public class AdminController : ControllerBase
         }
         var fileName = $"Timesheet_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
 
-        return File(filedata, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
+        return File(filedata, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
     }
 
     [HttpPost("add-employee")]
@@ -104,7 +104,7 @@ public class AdminController : ControllerBase
     }
 
     [HttpPatch("Update-Employee")]
-    public async Task<IActionResult> UpdateEmployee([FromBody]JsonPatchDocument<UpdateEmployeeDTO> patchDoc,[FromQuery] int empid)
+    public async Task<IActionResult> UpdateEmployeeByAdmin([FromBody] JsonPatchDocument<UpdateEmployeeByAdminDTO> patchDoc, [FromQuery] int empid)
     {
         if (!ModelState.IsValid)
         {
@@ -112,8 +112,37 @@ public class AdminController : ControllerBase
         }
         else
         {
-            return await _employeeServices.UpdateEmployee(patchDoc, empid);
+            return await _employeeServices.UpdateEmployeeByAdmin(patchDoc, empid);
         }
     }
+
+    [HttpPost("Reset-Password")]
+    public async Task<IActionResult> AdminResetPassword(string email)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        else
+        {
+            return await _authService.ResetTokenGeneration(email, "admin");
+        }
+
+    }
+
+    [HttpPost("Enter-New-Password")]
+    public async Task<IActionResult> EnterNewPassword(ResetPasswordDTO resetPasswordDTO)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        else
+        {
+            return await _authService.TokenValidation(resetPasswordDTO);
+        }
+    }
+
+    
 
 }

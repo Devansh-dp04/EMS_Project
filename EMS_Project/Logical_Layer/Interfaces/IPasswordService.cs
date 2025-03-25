@@ -3,5 +3,7 @@
     public interface IPasswordService
     {
         public string HashPassword(string password);
+
+        //public string PasswordReset();
     }
 }
