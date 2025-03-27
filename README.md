@@ -58,11 +58,11 @@ This project contains APIs for managing employees, admins, login, and report gen
 ## Setup Instructions 🛠️
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/Utsav-7/EMS--Backend-REST-API.git
+   git clone https://github.com/Devansh-dp04/EMS_Project.git
    ```
 2. Navigate to the project directory:  
    ```sh
-   cd EMS--Backend-REST-API
+   cd EMS_Project
    ```
 3. Restore dependencies:  
    ```sh
