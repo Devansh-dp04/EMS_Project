@@ -7,8 +7,8 @@ namespace EMS_Project.Logical_Layer.DTOs
 {
     public class LogWorkingHoursDTO
     {
-        [Required]
-        public int EmployeeId { get; set; }
+        //[Required]
+        //public int EmployeeId { get; set; }
 
         [Required]
         public DateTime Date { get; set; }
@@ -16,7 +16,7 @@ namespace EMS_Project.Logical_Layer.DTOs
         [Required]
         [ValidWorkingHours]
         public TimeSpan StartTime { get; set; }
-
+        [ValidWorkingHours]
         [Required]
         public TimeSpan EndTime { get; set; }        
 

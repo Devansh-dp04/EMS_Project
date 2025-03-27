@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
+    "Method": "DeleteLeave",
+    "RelativePath": "api/admin/Admin/delete-leave",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "leaveid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
     "Method": "EnterNewPassword",
     "RelativePath": "api/admin/Admin/Enter-New-Password",
     "HttpMethod": "POST",
@@ -76,7 +92,23 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "empid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
+    "Method": "GetLeavesByEmployeeId",
+    "RelativePath": "api/admin/Admin/Get-leaves-by-EmployeeID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empid",
         "Type": "System.Int32",
         "IsRequired": false
       }
@@ -121,19 +153,113 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.AdminController",
+    "Method": "UpdateLeaveStatus",
+    "RelativePath": "api/admin/Admin/Update-Leave-Status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.ReportGenerateController",
+    "Method": "GetMonthlyReport",
+    "RelativePath": "api/admin/ReportGenerate/MonthlyReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.ReportGenerateController",
+    "Method": "GetWeeklyReport",
+    "RelativePath": "api/admin/ReportGenerate/WeeklyReport",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
+    "Method": "GetLeaveById",
+    "RelativePath": "api/employee/Employee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
+    "Method": "AddLeave",
+    "RelativePath": "api/employee/Employee/Apply-for-leave",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "leaveDTO",
+        "Type": "EMS_Project.Logical_Layer.DTOs.LeaveDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "GetEmployeeProfile",
     "RelativePath": "api/employee/Employee/Employee-Profile",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -154,18 +280,22 @@
   },
   {
     "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
+    "Method": "GetLeavesByEmployeeId",
+    "RelativePath": "api/employee/Employee/Get-leaves",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMS_Project.Presentation_Layer.Controllers.EmployeeController",
     "Method": "GetTimeSheetById",
     "RelativePath": "api/employee/Employee/Get-TimeSheet-By-Id",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -217,11 +347,6 @@
         "Name": "patchDoc",
         "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
         "IsRequired": true
-      },
-      {
-        "Name": "empid",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -238,11 +363,6 @@
         "Name": "timeSheetupdate",
         "Type": "EMS_Project.Logical_Layer.DTOs.TimeSheetUpdateDTO",
         "IsRequired": true
-      },
-      {
-        "Name": "empid",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []

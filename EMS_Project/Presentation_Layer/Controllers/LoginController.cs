@@ -1,5 +1,6 @@
 ﻿using EMS_Project.Logical_Layer.DTOs;
 using EMS_Project.Logical_Layer.Interfaces;
+using EMS_Project.Logical_Layer.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMS_Project.Presentation_Layer.Controllers
@@ -9,9 +10,11 @@ namespace EMS_Project.Presentation_Layer.Controllers
     public class LoginController : ControllerBase
     {
         private readonly IAuthService _authService;
-        public LoginController(IAuthService authService)
+        private readonly ITimeSheetService _timeSheetService;
+        public LoginController(IAuthService authService, ITimeSheetService timeSheetService)
         {
             _authService = authService;
+            _timeSheetService = timeSheetService;
         }
         [HttpPost("admin-login")]
         public async Task<IActionResult> AdminLogin(AdminLoginReqeustDTO adminLoginReqeust)
@@ -40,6 +43,7 @@ namespace EMS_Project.Presentation_Layer.Controllers
             }
 
         }
+       
 
     }
 }

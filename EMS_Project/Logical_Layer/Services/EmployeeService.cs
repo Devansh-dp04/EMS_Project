@@ -9,44 +9,30 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Ocsp;
 
 namespace EMS_Project.Logical_Layer.Services
 {
     public class EmployeeService : IEmployeeServices
     {
-        private readonly EMSDbContext _context;
+        
         private readonly IPasswordService _passwordService;
         private readonly IMapper _mapper;
+        private readonly IEmployeeRepository _employeeRepository;
 
-        public EmployeeService(EMSDbContext context, IPasswordService passwordService, IMapper mapper)
+        public EmployeeService( IPasswordService passwordService, IMapper mapper, IEmployeeRepository employeeRepository)
         {
-            _context = context;
+            
             _passwordService = passwordService;
             _mapper = mapper;
+            _employeeRepository = employeeRepository;   
         }
 
         public async Task<IActionResult> GetEmployee()
         {
             try
             {
-                var empdata = await _context.Employees.Include(e => e.Timesheets).Select(empdata => new
-                {
-                    empdata.EmployeeId,
-                    empdata.FirstName,
-                    empdata.LastName,
-                    empdata.Email,
-                    empdata.Phone,
-                    empdata.Department.DepartmentName,
-                    timesheets = empdata.Timesheets.Select(ts => new
-                    {
-                        ts.CreatedAt,
-                        ts.Date,
-                        ts.TotalHours,
-                        ts.StartTime,
-                        ts.EndTime,
-
-                    })
-                }).ToListAsync();
+                var empdata =await _employeeRepository.GetEmployeeAsync();
 
                 return new ObjectResult(new
                 {
@@ -57,7 +43,7 @@ namespace EMS_Project.Logical_Layer.Services
                     StatusCode = StatusCodes.Status200OK
                 };
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 return new ObjectResult(new
@@ -70,29 +56,13 @@ namespace EMS_Project.Logical_Layer.Services
                 };
             }
         }
-    
+
         public async Task<IActionResult> GetEmployeeById(int id)
         {
             try
-            {
-                var empdata = await _context.Employees.Include(e => e.Timesheets).Select(empdata => new
-                {
-                    empdata.EmployeeId,
-                    empdata.FirstName,
-                    empdata.LastName,
-                    empdata.Email,
-                    empdata.Phone,
-                    empdata.Department.DepartmentName,
-                    timesheets = empdata.Timesheets.Select(ts => new
-                    {
-                        ts.CreatedAt,
-                        ts.Date,
-                        ts.TotalHours,
-                        ts.StartTime,
-                        ts.EndTime,
+            {               
 
-                    })
-                }).FirstOrDefaultAsync(e => e.EmployeeId == id);
+                var empdata =await _employeeRepository.GetEmployeeByIdAsync(id);
                 if (empdata != null)
                 {
                     return new ObjectResult(new
@@ -106,6 +76,7 @@ namespace EMS_Project.Logical_Layer.Services
                 }
                 else
                 {
+                    
                     return new ObjectResult(new
                     {
                         Success = false,
@@ -133,59 +104,75 @@ namespace EMS_Project.Logical_Layer.Services
 
         public async Task<IActionResult> AddEmployee(AddEmployeeDTO addEmployee)
         {
-            if (await _context.Employees.AnyAsync(u => u.Email == addEmployee.Email))
+            try
+            {
+                var empexists = _employeeRepository.CheckIfEmployeeExistsByEmail(addEmployee.Email);
+
+                if (empexists != null)
+                {
+                    return new ObjectResult(new
+                    {
+                        Success = false,
+                        Message = "Email already registered"
+                    })
+                    {
+                        StatusCode = StatusCodes.Status409Conflict
+                    };
+
+                }
+                var departmentExists = await _employeeRepository.CheckIfDepartmentExists(addEmployee.DepartmentId);
+                if (departmentExists == null)
+                {
+                    return new ObjectResult(new
+                    {
+                        Success = false,
+                        Message = "Department does not exist"
+                    })
+                    {
+                        StatusCode = StatusCodes.Status404NotFound
+                    };
+                }
+
+                string passwordhash = _passwordService.HashPassword(addEmployee.Password);
+                var employee = _mapper.Map<Employee>(addEmployee);
+
+                employee.PasswordHash = passwordhash;
+                var department = _mapper.Map<Department>(addEmployee);
+
+                //creating relationship
+                employee.DepartmentId = department.DepartmentId;
+
+                await _employeeRepository.AddEmployee(employee);
+
+                return new ObjectResult(new
+                {
+                    Success = true,
+                    Message = "Employee Added Successfully"
+                })
+                {
+                    StatusCode = StatusCodes.Status200OK
+                };
+            }
+            catch (Exception ex)
             {
                 return new ObjectResult(new
                 {
                     Success = false,
-                    Message = "Email already registered"
+                    Message = ex.Message
                 })
                 {
-                    StatusCode = StatusCodes.Status409Conflict
+                    StatusCode = StatusCodes.Status500InternalServerError
                 };
 
             }
-            var departmentExists = await _context.Departments.FindAsync(addEmployee.DepartmentId);
-            if(departmentExists == null)
-            {
-                return new ObjectResult(new
-                {
-                    Success = false,
-                    Message = "Department does not exist"
-                })
-                {
-                    StatusCode = StatusCodes.Status404NotFound
-                };
-            }
-
-            string passwordhash = _passwordService.HashPassword(addEmployee.Password);
-            var employee = _mapper.Map<Employee>(addEmployee);
-
-            employee.PasswordHash = passwordhash;
-            var department = _mapper.Map<Department>(addEmployee);
-
-            //creating relationship
-            employee.DepartmentId = department.DepartmentId;
-
-            _context.Employees.Add(employee);
-            await _context.SaveChangesAsync();
-
-            return new ObjectResult(new
-            {
-                Success = true,
-                Message = "Employee Added Successfully"
-            })
-            {
-                StatusCode = StatusCodes.Status200OK
-            };
         }
 
         public async Task<IActionResult> DeleteEmployee(string email)
         {
             try
             {
-                var employee = await _context.Employees.FirstOrDefaultAsync(e => e.Email == email);
-                if (employee == null || employee.IsActive == false)
+                var employee = await _employeeRepository.CheckIfEmployeeExistsByEmail(email);
+                if (employee == null )
                 {
                     return new ObjectResult(new
                     {
@@ -196,10 +183,7 @@ namespace EMS_Project.Logical_Layer.Services
                         StatusCode = StatusCodes.Status404NotFound
                     };
                 }
-
-                employee.IsActive = false;
-
-                await _context.SaveChangesAsync();
+                await _employeeRepository.DeleteEmployee(email);
                 return new ObjectResult(new
                 {
                     Success = true,
@@ -233,7 +217,8 @@ namespace EMS_Project.Logical_Layer.Services
                     throw new ArgumentNullException(nameof(patchDoc), "Patch document cannot be null.");
                 }
 
-                var employee = await _context.Employees.FindAsync(empid);
+                
+                var employee = await _employeeRepository.CheckIfEmployeeExistsById(empid);
 
                 if (employee == null)
                 {
@@ -247,14 +232,27 @@ namespace EMS_Project.Logical_Layer.Services
                     };
                 }
 
+                
                 var employeeDTO = _mapper.Map<UpdateEmployeeByAdminDTO>(employee);
-
-                patchDoc.ApplyTo(employeeDTO);
-
+                
+                patchDoc.ApplyTo(employeeDTO);                
+                
                 _mapper.Map(employeeDTO, employee);
 
-                employee.UpdatedAt = DateTime.Now;
-                await _context.SaveChangesAsync();
+                var emailexists = await _employeeRepository.CheckIfEmployeeExistsByEmail(employee.Email);
+                if (emailexists != null)
+                {
+                    return new ObjectResult(new
+                    {
+                        Success = false,
+                        Message = "Email already registered"
+                    })
+                    {
+                        StatusCode = StatusCodes.Status409Conflict
+                    };
+                }
+
+                await _employeeRepository.UpdateEmployee(employee);
 
                 return new ObjectResult(new
                 {
@@ -281,49 +279,47 @@ namespace EMS_Project.Logical_Layer.Services
 
         public async Task<IActionResult> GetEmployeeByEmail(string email)
         {
-            var empdata = await _context.Employees.Include(e => e.Timesheets).Select(empdata => new
+            try
             {
-                empdata.EmployeeId,
-                empdata.FirstName,
-                empdata.LastName,
-                empdata.Email,
-                empdata.Phone,
-                empdata.Department.DepartmentName,
-                timesheets = empdata.Timesheets.Select(ts => new
+                var empdata = await _employeeRepository.GetAdminEmployeeByEmailAsync(email);
+                if (empdata == null)
                 {
-                    ts.CreatedAt,
-                    ts.Date,
-                    ts.TotalHours,
-                    ts.StartTime,
-                    ts.EndTime,
-
+                    return new ObjectResult(new
+                    {
+                        Success = false,
+                        message = "Employee not found"
+                    })
+                    {
+                        StatusCode = StatusCodes.Status404NotFound
+                    };
+                }
+                return new ObjectResult(new
+                {
+                    Success = true,
+                    Data = empdata
                 })
-            }).FirstOrDefaultAsync(emp => emp.Email == email);
-            if (empdata == null)
+                {
+                    StatusCode = StatusCodes.Status200OK
+                };
+            }
+            catch (Exception)
             {
                 return new ObjectResult(new
                 {
                     Success = false,
-                    message = "Email not found"
+                    Message = "Error in fetching data"
                 })
                 {
-                    StatusCode = StatusCodes.Status404NotFound
+                    StatusCode = StatusCodes.Status500InternalServerError
                 };
+
             }
-            return new ObjectResult(new
-            {
-                Success = true,
-                Data = empdata
-            })
-            {
-                StatusCode = StatusCodes.Status200OK
-            };
 
         }
 
-        public async Task<IActionResult> LogWorkingHours(LogWorkingHoursDTO logWorkingHours)
+        public async Task<IActionResult> LogWorkingHours(LogWorkingHoursDTO logWorkingHours, int empid)
         {
-            var empdata = await _context.Employees.FirstOrDefaultAsync(emp => emp.EmployeeId == logWorkingHours.EmployeeId);
+            var empdata = await _employeeRepository.CheckIfEmployeeExistsById(empid);
             if (empdata == null)
             {
                 return new ObjectResult(new
@@ -339,9 +335,18 @@ namespace EMS_Project.Logical_Layer.Services
             var timesheet = _mapper.Map<Timesheet>(logWorkingHours);
             timesheet.EmployeeId = empdata.EmployeeId;
 
-            _context.Timesheets.Add(timesheet);
-            await _context.SaveChangesAsync();
-
+            if (await _employeeRepository.logWorkingHours(timesheet) == null)
+            {
+                return new ObjectResult(new
+                {
+                    Success = false,
+                    Message = "Working hours already logged"
+                })
+                {
+                    StatusCode = StatusCodes.Status200OK
+                };
+            };      
+            
             return new ObjectResult(new
             {
                 Success = true,
@@ -361,7 +366,7 @@ namespace EMS_Project.Logical_Layer.Services
                     throw new ArgumentNullException(nameof(patchDoc), "Patch document cannot be null.");
                 }
 
-                var employee = await _context.Employees.FindAsync(empid);
+                var employee = await _employeeRepository.CheckIfEmployeeExistsById(empid);
 
                 if (employee == null)
                 {
@@ -382,7 +387,7 @@ namespace EMS_Project.Logical_Layer.Services
                 _mapper.Map(employeeDTO, employee);
 
                 employee.UpdatedAt = DateTime.Now;
-                await _context.SaveChangesAsync();
+                await _employeeRepository.UpdateEmployee(employee);               
 
                 return new ObjectResult(new
                 {

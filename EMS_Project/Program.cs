@@ -29,6 +29,12 @@ builder.Services.AddScoped<ITimeSheetService, TimeSheetServices>();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IPasswordService, PasswordGeneration>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<ILeaveService , LeaveService>();
+
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<ILeaveRepository, LeaveRepository>();
+builder.Services.AddScoped<ITimesheetRepository, TimeSheetRepository>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

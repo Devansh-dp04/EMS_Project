@@ -1,16 +1,18 @@
 ﻿using EMS_Project.Logical_Layer.DTOs;
-using Microsoft.AspNetCore.Mvc;
+using EMS_Project.Models;
 
 namespace EMS_Project.Logical_Layer.Interfaces
 {
-    public interface ITimeSheetService
+    public interface ITimesheetRepository
     {
-        public Task<byte[]> ExportToExcelAsync();
+        public Task<List<TimeSheetDTO>> GetTimeSheet();
 
-        public Task<IActionResult> GetTimeSheet(int empid);
+        public Task<object> GetTimeSheetById(int id);
 
-        public Task<IActionResult> UpdateTimeSheet(TimeSheetUpdateDTO timesheetupdate, int empid);
+        public  Task<Timesheet?> UpdateTimeSheet(TimeSheetUpdateDTO timeSheet, int empid);
+
         public Task<List<WeeklyReportDTO>> GetWeeklyReportAsync(int employeeId, DateTime startDate);
         public Task<List<MonthlyReportDTO>> GetMonthlyReportAsync(int employeeId, int year, int month);
+
     }
 }

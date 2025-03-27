@@ -14,7 +14,7 @@ namespace EMS_Project.Logical_Layer.Services
             _config = _configuration;
         }       
 
-        public string GenerateJWTToken(string email, string password, string role)
+        public string GenerateJWTToken(string email, string password, string role, int empid)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -22,8 +22,10 @@ namespace EMS_Project.Logical_Layer.Services
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
-                new Claim(ClaimTypes.Role, role),   
-                
+                new Claim(ClaimTypes.Role, role),
+                new Claim("EmployeeId", empid.ToString())
+
+
             };
 
             var token = new JwtSecurityToken(

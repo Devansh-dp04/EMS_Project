@@ -15,12 +15,13 @@ public class AdminController : ControllerBase
     private readonly IAuthService _authService;
     private readonly IEmployeeServices _employeeServices;
     private readonly ITimeSheetService _timeSheetService;
-
-    public AdminController(IAuthService authService, IEmployeeServices employeeServices, ITimeSheetService timeSheetService)
+    private readonly ILeaveService _leaveService;
+    public AdminController(IAuthService authService, IEmployeeServices employeeServices, ITimeSheetService timeSheetService, ILeaveService leaveService)
     {
         _authService = authService;
         _employeeServices = employeeServices;
         _timeSheetService = timeSheetService;
+        _leaveService = leaveService;
     }    
     
     [HttpGet("get-employee")]
@@ -38,17 +39,11 @@ public class AdminController : ControllerBase
     }
     
     [HttpGet("get-employee-By-Id")]
-    public async Task<IActionResult> GetEmployeeById([FromQuery] int id)
+    public async Task<IActionResult> GetEmployeeById(int empid)
     {
-
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-        else
-        {
-            return await _employeeServices.GetEmployeeById(id);
-        }
+        
+        return await _employeeServices.GetEmployeeById(empid);
+        
     }
     
     [HttpGet("Export-TimeSheet-To-Excel")]
@@ -92,8 +87,10 @@ public class AdminController : ControllerBase
     }
     
     [HttpPatch("Update-Employee")]
-    public async Task<IActionResult> UpdateEmployeeByAdmin([FromBody] JsonPatchDocument<UpdateEmployeeByAdminDTO> patchDoc, [FromQuery] int empid)
+    public async Task<IActionResult> UpdateEmployeeByAdmin([FromBody] JsonPatchDocument<UpdateEmployeeByAdminDTO> patchDoc, int empid)
     {
+        
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -131,6 +128,52 @@ public class AdminController : ControllerBase
         }
     }
 
+    [HttpGet("Get-leaves-by-EmployeeID")]
+    public async Task<IActionResult> GetLeavesByEmployeeId(int empid)
+    {
+        
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        else
+        {
+            var leaves = await _leaveService.GetLeavesByEmployeeIdAsync(empid);
+            return new ObjectResult(leaves);
+        }
+    }
+
     
+    [HttpDelete("delete-leave")]
+    public async Task<IActionResult> DeleteLeave(int leaveid)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        else
+        {
+            var result = await _leaveService.DeleteLeaveAsync(leaveid);
+            if (!result) return NotFound();
+            return NoContent();
+        }
+
+    }
+    
+    [HttpPut("Update-Leave-Status")]
+    public async Task<IActionResult> UpdateLeaveStatus(int empid, string status)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        else
+        {
+            var result = await _leaveService.UpdateLeaveStatusAsync(empid, status);
+            if (result == null) return NotFound();
+            return NoContent();
+        }
+
+    }
 
 }

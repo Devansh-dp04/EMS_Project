@@ -26,7 +26,6 @@
   <ItemGroup>
     <Folder Include="Data_Access_layer\DBContext\" />
     <Folder Include="Data_Access_layer\Models\" />
-    <Folder Include="Presentation_Layer\Middlewares\" />
   </ItemGroup>
 
 </Project>

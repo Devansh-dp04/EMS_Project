@@ -24,12 +24,7 @@ namespace EMS_Project.Logical_Layer.CustoDataAnnotation
             }
 
             var totalHours = (endTime - startTime).TotalHours;
-
-            if (totalHours > 8.5)
-            {
-                
-                endTime = startTime.Add(TimeSpan.FromHours(8).Add(TimeSpan.FromMinutes(30)));
-            }
+            
 
             return ValidationResult.Success;
         }

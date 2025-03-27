@@ -8,7 +8,7 @@ using EMS_Project.Logical_Layer.DTOs;
 
 namespace EMS_Project.Logical_Layer.DTOs
 {
-    public class AddEmployeeDTO
+    public class AddEmployeeDTO 
     {
         [Required]
         [StringLength(100)]
